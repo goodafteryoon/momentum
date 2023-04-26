@@ -8,25 +8,11 @@ function getClock() {
     sec: date.getSeconds(),
   };
 
-  if (fullClock.hour < 10) {
-    fullClock.hour = `0${fullClock.hour}`;
-  } else {
-    fullClock.hour;
-  }
-
-  if (fullClock.min < 10) {
-    fullClock.min = `0${fullClock.min}`;
-  } else {
-    fullClock.min;
-  }
-
-  if (fullClock.sec < 10) {
-    fullClock.sec = `0${fullClock.sec}`;
-  } else {
-    fullClock.sec;
-  }
-
-  clock.innerText = `${fullClock.hour}:${fullClock.min}:${fullClock.sec}`;
+  clock.innerText = `${
+    fullClock.hour < 10 ? `0${fullClock.hour}` : fullClock.hour
+  }:${fullClock.min < 10 ? `0${fullClock.min}` : fullClock.min}:${
+    fullClock.sec < 10 ? `0${fullClock.sec}` : fullClock.sec
+  }`;
 }
 
 getClock();
