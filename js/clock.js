@@ -3,16 +3,12 @@ const clock = document.querySelector('h2#clock');
 function getClock() {
   const date = new Date();
   const fullClock = {
-    hour: date.getHours(),
-    min: date.getMinutes(),
-    sec: date.getSeconds(),
+    hour: String(date.getHours()).padStart(2, '0'),
+    min: String(date.getMinutes()).padStart(2, '0'),
+    sec: String(date.getSeconds()).padStart(2, '0'),
   };
 
-  clock.innerText = `${
-    fullClock.hour < 10 ? `0${fullClock.hour}` : fullClock.hour
-  }:${fullClock.min < 10 ? `0${fullClock.min}` : fullClock.min}:${
-    fullClock.sec < 10 ? `0${fullClock.sec}` : fullClock.sec
-  }`;
+  clock.innerText = `${fullClock.hour}:${fullClock.min}:${fullClock.sec}`;
 }
 
 getClock();
