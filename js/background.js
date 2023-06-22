@@ -8,7 +8,6 @@ const imgs = [
 ];
 
 const backgroundImg = document.createElement('img');
-console.log(backgroundImg);
 
 const randomImg = imgs[Math.floor(Math.random() * imgs.length)];
 
