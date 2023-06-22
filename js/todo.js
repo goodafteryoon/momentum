@@ -4,10 +4,10 @@ const toDoList = document.getElementById('todo-list');
 
 const TODOS_KEY = 'todos';
 
-const toDos = [];
+let toDos = [];
 
 function saveToDos() {
-  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos)); // 로컬 스토리지엔 string만 저장 가능하므로 객체를 문자열로 변환해서 저장한다
 }
 
 function handleToDoDelete(event) {
@@ -41,4 +41,8 @@ toDoForm.addEventListener('submit', handleToDoSubmit);
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
 
-console.log(savedToDos);
+if (savedToDos !== null) {
+  const parsedToDos = JSON.parse(savedToDos);
+  toDos = parsedToDos;
+  parsedToDos.forEach(paintToDo);
+}
